@@ -14,7 +14,7 @@ const Footer = () => {
 
         <div className="flex gap-4">
           {/* Quick social links or back to top */}
-          <a href="#home" className="text-gray-500 hover:text-accent-blue transition-colors text-sm font-semibold">
+          <a href="#home" className="text-gray-500 hover:text-accent-red transition-colors text-sm font-semibold">
             Back to Top &uarr;
           </a>
         </div>

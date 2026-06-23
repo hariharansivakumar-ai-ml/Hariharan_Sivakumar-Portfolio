@@ -21,30 +21,55 @@ const Contact = () => {
       title: "Email",
       value: personalInfo.email,
       href: `mailto:${personalInfo.email}`,
-      color: "hover:text-red-400 border-red-400/20"
+      color: "hover:text-accent-red border-accent-red/20 hover:border-accent-red/40 shadow-red-glow-hover"
     },
     {
       icon: <FaPhoneAlt />,
       title: "Phone",
       value: personalInfo.phone,
       href: `tel:${personalInfo.phone}`,
-      color: "hover:text-green-400 border-green-400/20"
+      color: "hover:text-accent-red border-accent-red/20 hover:border-accent-red/40 shadow-red-glow-hover"
     },
     {
       icon: <FaLinkedinIn />,
       title: "LinkedIn",
       value: "hariharan-sivakumar003",
       href: personalInfo.linkedin,
-      color: "hover:text-blue-500 border-blue-500/20"
+      color: "hover:text-accent-rose border-accent-rose/20 hover:border-accent-rose/40 shadow-red-glow-hover"
     },
     {
       icon: <FaGithub />,
       title: "GitHub",
       value: "hariharansivakumar-ai-ml",
       href: personalInfo.github,
-      color: "hover:text-gray-300 border-gray-300/20"
+      color: "hover:text-white border-white/10 hover:border-white/30 shadow-red-glow-hover"
     }
   ];
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.08,
+        delayChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    show: { 
+      opacity: 1, 
+      y: 0,
+      transition: { type: "spring", stiffness: 100, damping: 12 }
+    },
+    hover: {
+      y: -6,
+      scale: 1.02,
+      transition: { duration: 0.25, ease: "easeOut" }
+    }
+  };
 
   return (
     <section id="contact" className="py-20 relative">
@@ -54,12 +79,16 @@ const Contact = () => {
         <div className="max-w-4xl mx-auto mt-12">
 
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 35 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="glass p-8 md:p-12 text-center rounded-3xl"
+            whileHover={{ scale: 1.005 }}
+            className="glass p-8 md:p-12 text-center rounded-3xl relative overflow-hidden group border border-white/5 hover:border-accent-red/20 shadow-red-glow shadow-red-glow-hover transition-all duration-300"
           >
+            {/* Top red glow accent line */}
+            <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-accent-red to-accent-rose opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
             <h3 className="text-2xl md:text-3xl font-bold text-white mb-6">
               Interested in collaborating?
             </h3>
@@ -67,11 +96,19 @@ const Contact = () => {
               I'm always open to discussing web development projects, data analysis roles, or partnership opportunities. Feel free to reach out via any of the platforms below!
             </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
+            <motion.div 
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+              className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 z-10 relative"
+            >
               {contactLinks.map((link, idx) => (
-                <div
+                <motion.div
                   key={idx}
-                  className={`flex items-center justify-between p-4 glass hover:-translate-y-1 transition-all duration-300 group ${link.color}`}
+                  variants={itemVariants}
+                  whileHover="hover"
+                  className={`flex items-center justify-between p-4 glass transition-all duration-300 group border border-white/5 hover:border-accent-red/20 ${link.color}`}
                 >
                   <a
                     href={link.href}
@@ -80,7 +117,7 @@ const Contact = () => {
                     className="flex items-center gap-4 overflow-hidden flex-1"
                     title={link.id === 'email' ? "Click to compose email" : ""}
                   >
-                    <div className="p-3 bg-white/5 rounded-lg text-xl flex-shrink-0 group-hover:scale-110 transition-transform">
+                    <div className="p-3 bg-white/5 rounded-lg text-xl flex-shrink-0 group-hover:scale-110 group-hover:rotate-12 transition-all duration-300 text-accent-red">
                       {link.icon}
                     </div>
                     <div className="text-left overflow-hidden">
@@ -92,19 +129,24 @@ const Contact = () => {
                   {link.id === 'email' && (
                     <button
                       onClick={(e) => handleCopy(e, link.value)}
-                      className="p-2 ml-2 bg-white/10 hover:bg-white/20 rounded-md transition-colors text-gray-300 hover:text-white flex-shrink-0 cursor-pointer focus:outline-none focus:ring-2 focus:ring-accent-blue"
+                      className="p-2 ml-2 bg-white/10 hover:bg-white/20 rounded-md transition-colors text-gray-300 hover:text-white flex-shrink-0 cursor-pointer focus:outline-none focus:ring-2 focus:ring-accent-red z-20"
                       title="Copy to clipboard"
                     >
-                      {copied ? <FaCheck className="text-green-400" /> : <FaCopy />}
+                      {copied ? <FaCheck className="text-accent-red" /> : <FaCopy />}
                     </button>
                   )}
-                </div>
+                </motion.div>
               ))}
-            </div>
+            </motion.div>
 
-            <div className="mt-12 pt-8 border-t border-white/10 flex justify-center">
-              <a href={personalInfo.resumeLink} target="_blank" rel="noreferrer" className="glow-button">
-                <span className="glow-button-inner">Download / View Resume</span>
+            <div className="mt-12 pt-8 border-t border-white/5 flex justify-center">
+              <a 
+                href={personalInfo.resumeLink} 
+                target="_blank" 
+                rel="noreferrer" 
+                className="px-8 py-4 bg-gradient-to-r from-accent-red to-accent-crimson text-white font-semibold rounded-xl shadow-[0_4px_20px_rgba(239,68,68,0.25)] hover:shadow-[0_4px_30px_rgba(239,68,68,0.45)] hover:-translate-y-0.5 active:scale-95 transition-all duration-300 text-center cursor-pointer"
+              >
+                Download / View Resume
               </a>
             </div>
           </motion.div>

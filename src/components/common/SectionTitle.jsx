@@ -9,7 +9,7 @@ const SectionTitle = ({ title, subtitle }) => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
-        className="text-accent-blue font-medium tracking-wider uppercase text-sm mb-2"
+        className="text-accent-red font-semibold tracking-wider uppercase text-sm mb-2"
       >
         {subtitle}
       </motion.p>
@@ -27,7 +27,7 @@ const SectionTitle = ({ title, subtitle }) => {
         whileInView={{ opacity: 1, scaleX: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5, delay: 0.2 }}
-        className="h-1 w-24 bg-gradient-to-r from-accent-purple to-accent-blue mx-auto mt-6 rounded-full"
+        className="h-1 w-24 bg-gradient-to-r from-accent-crimson to-accent-red mx-auto mt-6 rounded-full"
       />
     </div>
   );

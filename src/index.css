@@ -18,27 +18,28 @@
 
 @layer utilities {
   .glass {
-    @apply bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl;
+    @apply bg-[#0e0e0e]/60 backdrop-blur-xl border border-white/5 rounded-2xl transition-all duration-300;
+  }
+
+  .glass-card {
+    @apply bg-cardBg/40 backdrop-blur-xl border border-white/5 rounded-2xl hover:border-accent-red/20 transition-all duration-300;
   }
 
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-accent-purple via-accent-blue to-accent-pink;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-white via-accent-red to-white;
   }
 
-  .glow-button {
-    @apply relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium rounded-lg bg-gradient-to-br from-accent-purple to-accent-blue hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-800;
+  .shadow-red-glow {
+    box-shadow: 0 0 15px rgba(239, 68, 68, 0.1);
   }
 
-  .glow-button:hover {
-    @apply from-accent-purple to-accent-blue;
+  .shadow-red-glow-hover {
+    @apply transition-all duration-300;
   }
 
-  .glow-button-inner {
-    @apply relative px-5 py-2.5 transition-all ease-in duration-75 bg-primary rounded-md;
-  }
-
-  .glow-button:hover .glow-button-inner {
-    @apply bg-opacity-0;
+  .shadow-red-glow-hover:hover {
+    box-shadow: 0 0 25px rgba(239, 68, 68, 0.25);
+    border-color: rgba(239, 68, 68, 0.3) !important;
   }
 }
 
@@ -48,14 +49,14 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #0a0a0a;
+  background: #000000;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #3b82f6;
+  background: #ef4444;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #8b5cf6;
+  background: #dc2626;
 }

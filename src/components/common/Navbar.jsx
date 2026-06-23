@@ -75,7 +75,7 @@ const Navbar = () => {
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.1 }}
-                className={`text-sm font-medium transition-colors hover:text-accent-blue ${activeSection === link.href.substring(1) ? 'text-accent-blue' : 'text-gray-300'}`}
+                className={`text-sm font-medium transition-colors hover:text-accent-red ${activeSection === link.href.substring(1) ? 'text-accent-red' : 'text-gray-300'}`}
               >
                 {link.name}
               </motion.a>
@@ -89,9 +89,9 @@ const Navbar = () => {
               href={personalInfo.resumeLink}
               target="_blank"
               rel="noreferrer"
-              className="glow-button"
+              className="px-5 py-2.5 bg-gradient-to-r from-accent-red to-accent-crimson text-white text-sm font-semibold rounded-lg shadow-[0_2px_10px_rgba(239,68,68,0.2)] hover:shadow-[0_2px_18px_rgba(239,68,68,0.35)] hover:-translate-y-0.5 active:scale-95 transition-all duration-300 inline-block text-center cursor-pointer"
             >
-              <span className="glow-button-inner">Resume</span>
+              Resume
             </motion.a>
           </div>
 
@@ -125,7 +125,7 @@ const Navbar = () => {
                   key={link.name}
                   href={link.href}
                   onClick={(e) => scrollToSection(e, link.href)}
-                  className={`block px-3 py-2 rounded-md text-base font-medium ${activeSection === link.href.substring(1) ? 'text-accent-blue bg-white/5' : 'text-gray-300 hover:text-white hover:bg-white/5'}`}
+                  className={`block px-3 py-2 rounded-md text-base font-medium ${activeSection === link.href.substring(1) ? 'text-accent-red bg-white/5' : 'text-gray-300 hover:text-white hover:bg-white/5'}`}
                 >
                   {link.name}
                 </a>
@@ -134,7 +134,7 @@ const Navbar = () => {
                 href={personalInfo.resumeLink}
                 target="_blank"
                 rel="noreferrer"
-                className="block px-3 py-2 text-base font-medium text-accent-purple hover:text-accent-pink transition-colors"
+                className="block px-3 py-2 text-base font-medium text-accent-rose hover:text-accent-red transition-colors"
                 onClick={() => setIsOpen(false)}
               >
                 View Resume

@@ -7,12 +7,16 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "#0a0a0a",
-        secondary: "#171717",
+        primary: "#000000",
+        secondary: "#0a0a0a",
+        cardBg: "#121212",
         accent: {
-          blue: "#3b82f6",
-          purple: "#8b5cf6",
-          pink: "#ec4899",
+          red: "#ef4444",
+          rose: "#f43f5e",
+          orange: "#f97316",
+          crimson: "#dc2626",
+          darkRed: "#991b1b",
+          deep: "#5c0606",
         }
       },
       fontFamily: {

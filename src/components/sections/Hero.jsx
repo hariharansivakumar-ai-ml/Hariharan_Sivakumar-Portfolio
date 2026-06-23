@@ -1,23 +1,52 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { personalInfo } from '../../utils/data';
 import { FaArrowRight } from 'react-icons/fa';
-import profilePhoto from '../../assets/profile_photo.jpeg';
+import heroVideoWebm from '../../assets/Hero Section.webm';
+import heroVideoMp4 from '../../assets/Hero Section.mp4';
 
 const Hero = () => {
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.defaultMuted = true;
+      videoRef.current.muted = true;
+      videoRef.current.play().catch(err => {
+        console.log("Video autoPlay was prevented by browser policies:", err);
+      });
+    }
+  }, []);
+
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full text-center md:text-left flex flex-col md:flex-row items-center justify-between gap-12">
+      {/* Background Video with Dark Overlay */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <video 
+          ref={videoRef}
+          autoPlay 
+          loop 
+          muted 
+          playsInline 
+          className="w-full h-full object-cover opacity-40 filter brightness-[0.8] contrast-[1.15]"
+        >
+          <source src={heroVideoWebm} type="video/webm" />
+          <source src={heroVideoMp4} type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-gradient-to-b from-primary/50 via-primary/80 to-primary"></div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full text-left flex items-center justify-start min-h-[calc(100vh-80px)]">
 
         {/* Text Content */}
-        <div className="flex-1 space-y-6">
+        <div className="max-w-3xl space-y-6 py-12 md:py-20">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             className="inline-block"
           >
-            <span className="px-3 py-1 rounded-full bg-accent-blue/10 text-accent-blue border border-accent-blue/20 text-sm font-medium tracking-wide">
+            <span className="px-3 py-1 rounded-full bg-accent-red/10 text-accent-red border border-accent-red/20 text-sm font-semibold tracking-wide">
               Welcome to my portfolio
             </span>
           </motion.div>
@@ -45,7 +74,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="text-lg text-gray-400 max-w-xl mx-auto md:mx-0"
+            className="text-lg text-gray-400 max-w-xl"
           >
             {personalInfo.tagline}
           </motion.p>
@@ -54,42 +83,26 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4 pt-4"
+            className="flex flex-col sm:flex-row items-center justify-start gap-4 pt-4 w-full sm:w-auto"
           >
             <a
               href={personalInfo.resumeLink}
               target="_blank"
               rel="noreferrer"
-              className="glow-button w-full sm:w-auto"
+              className="px-8 py-4 bg-gradient-to-r from-accent-red to-accent-crimson text-white font-semibold rounded-xl shadow-[0_4px_20px_rgba(239,68,68,0.25)] hover:shadow-[0_4px_30px_rgba(239,68,68,0.45)] hover:-translate-y-0.5 active:scale-95 transition-all duration-300 flex items-center justify-center gap-2 group w-full sm:w-auto text-center"
             >
-              <span className="glow-button-inner flex items-center justify-center gap-2">
-                View Resume <FaArrowRight />
-              </span>
+              View Resume 
+              <FaArrowRight className="group-hover:translate-x-1.5 transition-transform duration-300" />
             </a>
 
             <a
               href="#contact"
-              className="px-8 py-3 rounded-lg border border-gray-600 hover:border-gray-400 text-gray-300 hover:text-white transition-all duration-300 w-full sm:w-auto text-center"
+              className="px-8 py-4 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-accent-red/35 text-gray-200 hover:text-white font-semibold rounded-xl hover:-translate-y-0.5 active:scale-95 transition-all duration-300 w-full sm:w-auto text-center shadow-sm hover:shadow-[0_0_15px_rgba(239,68,68,0.1)]"
             >
               Contact Me
             </a>
           </motion.div>
         </div>
-
-        {/* Visual Element / Profile Photo */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="flex-1 w-full flex items-center justify-center mt-12 md:mt-0"
-        >
-          <div className="relative w-64 h-64 lg:w-80 lg:h-80 mx-auto">
-            <div className="absolute inset-0 bg-gradient-to-tr from-accent-purple to-accent-blue rounded-full filter blur-3xl opacity-50 animate-pulse"></div>
-            <div className="relative w-full h-full rounded-full border-4 border-white/20 bg-white/5 p-2 shadow-2xl flex items-center justify-center">
-              <img src={profilePhoto} alt={personalInfo.name} style={{ imageRendering: 'high-quality' }} className="w-full h-full object-cover object-top rounded-full pointer-events-none" />
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   );
