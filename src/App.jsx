@@ -35,7 +35,7 @@ function App() {
       <Navbar />
 
       {/* Main Sections */}
-      <main className="flex flex-col gap-8 md:gap-16">
+      <main className="flex flex-col">
         <Hero />
         <About />
         <Skills />
