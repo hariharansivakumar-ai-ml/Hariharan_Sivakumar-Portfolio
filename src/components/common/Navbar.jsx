@@ -75,9 +75,16 @@ const Navbar = () => {
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.1 }}
-                className={`text-sm font-medium transition-colors hover:text-accent-red ${activeSection === link.href.substring(1) ? 'text-accent-red' : 'text-gray-300'}`}
+                className={`relative py-1 text-sm font-medium transition-colors hover:text-white ${activeSection === link.href.substring(1) ? 'text-white font-semibold' : 'text-gray-300'}`}
               >
                 {link.name}
+                {activeSection === link.href.substring(1) && (
+                  <motion.div
+                    layoutId="activeNavLink"
+                    className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-accent-red to-accent-rose shadow-[0_0_8px_#ef4444]"
+                    transition={{ type: 'spring', stiffness: 350, damping: 30 }}
+                  />
+                )}
               </motion.a>
             ))}
           </div>

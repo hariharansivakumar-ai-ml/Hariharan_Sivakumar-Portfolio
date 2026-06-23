@@ -12,7 +12,9 @@ import {
   FaServer, 
   FaLaptopCode, 
   FaChartBar, 
-  FaBookReader 
+  FaBookReader,
+  FaChartArea,
+  FaLock
 } from 'react-icons/fa';
 import { 
   SiFastapi, 
@@ -23,7 +25,8 @@ import {
   SiVercel, 
   SiPandas, 
   SiNumpy, 
-  SiPostman
+  SiPostman,
+  SiMysql
 } from 'react-icons/si';
 
 export const personalInfo = {
@@ -36,42 +39,42 @@ export const personalInfo = {
   linkedin: "https://www.linkedin.com/in/hariharan-sivakumar003",
   github: "https://github.com/hariharansivakumar-ai-ml",
   portfolio: "https://hariharan-sivakumar-portfolio.vercel.app",
-  resumeLink: "https://drive.google.com/file/d/1hI9fk8ScDXMNgP20_4zcGewIVxmNp2_h/view?usp=sharing",
-  summary: "Full Stack Web Developer with hands-on experience in building scalable, responsive, and high-performance web applications using React.js, JavaScript, Python, FastAPI, Firebase, PostgreSQL, and REST APIs. Experienced in frontend and backend development, CMS integration, cloud storage solutions, website migrations, SEO optimization, and database management. Proven ability to deliver business-focused web solutions across education, healthcare, and real estate domains. Passionate about solving real-world problems through technology and continuously expanding technical expertise."
+  resumeLink: "/Hariharan_Sivakumar_Resume.docx",
+  summary: "Full Stack Web Developer with hands-on experience building scalable, responsive, and high-performance web applications using React.js, JavaScript, Python, FastAPI, Firebase, PostgreSQL, and REST APIs. Proven ability to deliver business-focused web solutions across education, healthcare, and real estate domains with expertise in CMS integration, cloud storage, SEO optimization, and website migrations."
 };
 
 export const techSkills = [
   // Languages & Frameworks
-  { name: "React.js", category: "Languages & Frameworks", icon: FaReact, color: "text-accent-red" },
-  { name: "JavaScript (ES6+)", category: "Languages & Frameworks", icon: FaJs, color: "text-white" },
-  { name: "Python", category: "Languages & Frameworks", icon: FaPython, color: "text-accent-rose" },
-  { name: "FastAPI", category: "Languages & Frameworks", icon: SiFastapi, color: "text-white" },
-  { name: "HTML5", category: "Languages & Frameworks", icon: FaHtml5, color: "text-accent-orange" },
-  { name: "CSS3", category: "Languages & Frameworks", icon: FaCss3Alt, color: "text-accent-red" },
+  { name: "React.js", category: "Languages & Frameworks", icon: FaReact, color: "text-accent-red", level: 90, status: "Expert" },
+  { name: "JavaScript", category: "Languages & Frameworks", icon: FaJs, color: "text-white", level: 88, status: "Expert" },
+  { name: "Python", category: "Languages & Frameworks", icon: FaPython, color: "text-accent-rose", level: 85, status: "Advanced" },
+  { name: "FastAPI", category: "Languages & Frameworks", icon: SiFastapi, color: "text-white", level: 82, status: "Advanced" },
+  { name: "HTML", category: "Languages & Frameworks", icon: FaHtml5, color: "text-accent-orange", level: 95, status: "Expert" },
+  { name: "CSS", category: "Languages & Frameworks", icon: FaCss3Alt, color: "text-accent-red", level: 90, status: "Expert" },
 
   // Backend & APIs
-  { name: "REST APIs", category: "Backend & APIs", icon: FaServer, color: "text-white" },
-  { name: "API Integration", category: "Backend & APIs", icon: FaLaptopCode, color: "text-accent-rose" },
-  { name: "Auth Systems", category: "Backend & APIs", icon: FaDatabase, color: "text-accent-red" },
+  { name: "REST API Development", category: "Backend & APIs", icon: FaServer, color: "text-white", level: 88, status: "Advanced" },
+  { name: "API Integration", category: "Backend & APIs", icon: FaLaptopCode, color: "text-accent-rose", level: 85, status: "Advanced" },
+  { name: "Authentication Systems", category: "Backend & APIs", icon: FaLock, color: "text-accent-red", level: 80, status: "Advanced" },
 
   // Databases & CMS
-  { name: "PostgreSQL", category: "Databases & CMS", icon: SiPostgresql, color: "text-white" },
-  { name: "Firebase", category: "Databases & CMS", icon: SiFirebase, color: "text-accent-orange" },
-  { name: "Sanity CMS", category: "Databases & CMS", icon: SiSanity, color: "text-accent-red" },
+  { name: "PostgreSQL", category: "Databases & CMS", icon: SiPostgresql, color: "text-white", level: 82, status: "Advanced" },
+  { name: "Firebase", category: "Databases & CMS", icon: SiFirebase, color: "text-accent-orange", level: 85, status: "Advanced" },
+  { name: "Sanity CMS", category: "Databases & CMS", icon: SiSanity, color: "text-accent-red", level: 88, status: "Expert" },
+  { name: "MySQL", category: "Databases & CMS", icon: SiMysql, color: "text-white", level: 80, status: "Advanced" },
 
-  // Cloud & Deployment
-  { name: "Cloudinary", category: "Cloud & Deployment", icon: SiCloudinary, color: "text-accent-rose" },
-  { name: "Vercel", category: "Cloud & Deployment", icon: SiVercel, color: "text-white" },
+  // Cloud & Tools
+  { name: "Cloudinary", category: "Cloud & Tools", icon: SiCloudinary, color: "text-accent-rose", level: 85, status: "Advanced" },
+  { name: "Vercel", category: "Cloud & Tools", icon: SiVercel, color: "text-white", level: 90, status: "Expert" },
+  { name: "Git", category: "Cloud & Tools", icon: FaGitAlt, color: "text-accent-rose", level: 88, status: "Expert" },
+  { name: "GitHub", category: "Cloud & Tools", icon: FaGithub, color: "text-white", level: 90, status: "Expert" },
+  { name: "Postman", category: "Cloud & Tools", icon: SiPostman, color: "text-accent-red", level: 85, status: "Advanced" },
 
-  // Data Analytics
-  { name: "Power BI", category: "Data Analytics", icon: FaChartBar, color: "text-accent-orange" },
-  { name: "Pandas", category: "Data Analytics", icon: SiPandas, color: "text-accent-red" },
-  { name: "NumPy", category: "Data Analytics", icon: SiNumpy, color: "text-white" },
-
-  // Tools
-  { name: "Git", category: "Tools", icon: FaGitAlt, color: "text-accent-rose" },
-  { name: "GitHub", category: "Tools", icon: FaGithub, color: "text-white" },
-  { name: "Postman", category: "Tools", icon: SiPostman, color: "text-accent-red" }
+  // Data & Analytics
+  { name: "Microsoft Power BI", category: "Data & Analytics", icon: FaChartBar, color: "text-accent-orange", level: 75, status: "Intermediate" },
+  { name: "Pandas", category: "Data & Analytics", icon: SiPandas, color: "text-accent-red", level: 78, status: "Advanced" },
+  { name: "NumPy", category: "Data & Analytics", icon: SiNumpy, color: "text-white", level: 75, status: "Intermediate" },
+  { name: "Matplotlib", category: "Data & Analytics", icon: FaChartArea, color: "text-accent-rose", level: 72, status: "Intermediate" }
 ];
 
 export const experience = [
@@ -82,25 +85,20 @@ export const experience = [
     responsibilities: [
       "Developed and maintained responsive web applications using React.js, JavaScript, Python, and FastAPI.",
       "Migrated WordPress-based websites to modern React applications, improving scalability and maintainability.",
-      "Built dynamic blog and content management systems using Sanity CMS.",
-      "Integrated Cloudinary for optimized media storage and gallery management.",
+      "Built dynamic blog and CMS systems using Sanity CMS; integrated Cloudinary for optimized media storage.",
       "Developed backend APIs, authentication workflows, and database integrations using Firebase and PostgreSQL.",
       "Implemented on-page SEO strategies to improve search visibility and website performance.",
-      "Collaborated with clients to gather requirements and deliver customized web solutions.",
-      "Resolved application bugs, optimized performance, and enhanced user experience across multiple projects.",
-      "Contributed to projects across education, healthcare, real estate, technology, and business sectors."
+      "Delivered customized web solutions across education, healthcare, real estate, and business sectors."
     ]
   },
   {
     role: "Freelance Full Stack Developer",
     company: "Self-Employed",
-    duration: "Dec 2025 – Present",
+    duration: "May 2025 – Present",
     responsibilities: [
       "Developing a School ERP System to streamline academic and administrative operations.",
-      "Building responsive frontend interfaces using React.js.",
-      "Developing backend services and APIs using Python and FastAPI.",
-      "Implementing authentication, role-based access control, and database management.",
-      "Designing scalable architecture to support future feature expansion."
+      "Building responsive frontend with React.js and backend services with Python/FastAPI.",
+      "Implementing authentication, role-based access control, and scalable PostgreSQL/Firebase database architecture."
     ]
   }
 ];
@@ -156,24 +154,19 @@ export const education = [
   {
     degree: "Bachelor of Engineering (Mechanical Engineering)",
     institution: "Erode Sengunthar Engineering College",
-    duration: "2018 – 2022"
+    duration: "2022"
   }
 ];
 
 export const certifications = [
-  "AI Programmer Certification",
+  "AI Programmer Certification from TNSDC",
   "Python Programming Certification"
 ];
 
 export const additionalExpertise = [
-  "WordPress to React Migration",
-  "REST API Integration",
-  "Firebase Authentication",
-  "PostgreSQL Database Management",
-  "Sanity CMS Development",
-  "Cloudinary Integration",
-  "Responsive Web Development",
-  "On-Page SEO Optimization",
-  "Website Performance Optimization",
-  "Deployment & Maintenance"
+  "Full Stack Dev",
+  "Responsive Design",
+  "UI/UX",
+  "SEO Optimization",
+  "WordPress-to-React Migration"
 ];
