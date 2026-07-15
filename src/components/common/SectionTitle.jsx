@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 const SectionTitle = ({ title, subtitle }) => {
   return (
-    <div className="mb-16 text-center">
+    <div className="mb-10 text-center">
       <motion.p
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}

@@ -20,7 +20,7 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" className="py-20 relative">
+    <section id="projects" className="py-12 relative">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionTitle title="Projects" subtitle="Some things I've built" />
 
@@ -45,18 +45,18 @@ const Projects = () => {
                 </div>
                 
                 {/* Snaking Headphone Wire Connector */}
-                <div className="absolute left-[28px] right-[60px] top-1/2 -translate-y-1/2 h-[12px] pointer-events-none z-0">
-                  <svg className="w-full h-full" preserveAspectRatio="none" viewBox="0 0 100 20">
+                <div className="absolute left-[28px] right-[60px] top-1/2 -translate-y-1/2 h-[24px] pointer-events-none z-0">
+                  <svg className="w-full h-full overflow-visible" preserveAspectRatio="none" viewBox="0 0 100 40">
                     {/* Background faint cord */}
                     <path 
-                      d="M 0,10 Q 25,2 50,10 T 100,10" 
+                      d="M 0,20 Q 25,6 50,20 T 100,20" 
                       fill="none" 
-                      stroke="rgba(239, 68, 68, 0.12)" 
+                      stroke="rgba(239, 68, 68, 0.18)" 
                       strokeWidth="2" 
                     />
                     {/* Glowing active cord current */}
                     <motion.path 
-                      d="M 0,10 Q 25,2 50,10 T 100,10" 
+                      d="M 0,20 Q 25,6 50,20 T 100,20" 
                       fill="none" 
                       stroke="#ef4444" 
                       strokeWidth="2" 
@@ -64,10 +64,30 @@ const Projects = () => {
                         initial: { pathLength: 0 },
                         hover: { 
                           pathLength: 1,
-                          transition: { duration: 0.6, ease: "easeInOut" }
+                          transition: { duration: 0.5, ease: "easeInOut" }
                         }
                       }}
-                      style={{ filter: "drop-shadow(0 0 3px #ef4444)" }}
+                      style={{ filter: "drop-shadow(0 0 4px #ef4444)" }}
+                    />
+                    {/* Flowing laser pulse current on hover */}
+                    <motion.path 
+                      d="M 0,20 Q 25,6 50,20 T 100,20" 
+                      fill="none" 
+                      stroke="#f43f5e" 
+                      strokeWidth="2.5" 
+                      strokeDasharray="8 30"
+                      variants={{
+                        initial: { strokeDashoffset: 0, opacity: 0 },
+                        hover: { 
+                          strokeDashoffset: -100, 
+                          opacity: 1,
+                          transition: { 
+                            strokeDashoffset: { repeat: Infinity, duration: 1.2, ease: "linear" },
+                            opacity: { duration: 0.15 }
+                          }
+                        }
+                      }}
+                      style={{ filter: "drop-shadow(0 0 6px #f43f5e)" }}
                     />
                   </svg>
                 </div>

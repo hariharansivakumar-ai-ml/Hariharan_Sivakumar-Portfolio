@@ -72,7 +72,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 relative">
+    <section id="contact" className="py-12 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionTitle title="Get In Touch" subtitle="Let's build something together" />
 
@@ -89,10 +89,82 @@ const Contact = () => {
             {/* Top red glow accent line */}
             <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-accent-red to-accent-rose opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-            <h3 className="text-2xl md:text-3xl font-bold text-white mb-6">
+            {/* Small Headphone Jack Plug in the Bottom-Left Corner */}
+            <div className="absolute bottom-4 left-4 w-28 h-28 pointer-events-none z-0 opacity-30 group-hover:opacity-60 transition-opacity duration-500 overflow-visible hidden md:block">
+              <svg className="w-full h-full" viewBox="0 0 100 100" fill="none">
+                {/* Wire tail */}
+                <path 
+                  d="M 10,90 C 20,80 30,85 45,75 C 55,67 55,55 65,45" 
+                  stroke="rgba(239, 68, 68, 0.18)" 
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                />
+                <motion.path 
+                  d="M 10,90 C 20,80 30,85 45,75 C 55,67 55,55 65,45" 
+                  stroke="#ef4444" 
+                  strokeWidth="2" 
+                  strokeLinecap="round"
+                  initial={{ pathLength: 0 }}
+                  whileInView={{ pathLength: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 1.5, ease: "easeInOut" }}
+                  style={{ filter: "drop-shadow(0 0 3px #ef4444)" }}
+                />
+                
+                {/* Headphone Jack Plug body at (65, 45) pointing diagonally */}
+                <g transform="translate(65,45) rotate(-45)">
+                  {/* Metal tip */}
+                  <path d="M 0,-2 L 8,-2 L 10,0 L 8,2 L 0,2 Z" fill="#9ca3af" />
+                  {/* Insulating rings */}
+                  <rect x="3" y="-2" width="1" height="4" fill="#111827" />
+                  <rect x="6" y="-2" width="1" height="4" fill="#111827" />
+                  {/* Metal sleeve */}
+                  <rect x="10" y="-3" width="12" height="6" rx="1" fill="#374151" />
+                  {/* Rubber strain relief */}
+                  <path d="M 22,-2 L 28,-1 L 28,1 L 22,2 Z" fill="#1f2937" />
+                </g>
+              </svg>
+            </div>
+
+            {/* Small Coiled Headphone Wire in the Bottom-Right Corner */}
+            <div className="absolute bottom-4 right-4 w-32 h-32 pointer-events-none z-0 opacity-30 group-hover:opacity-60 transition-opacity duration-500 overflow-visible hidden md:block">
+              <svg className="w-full h-full" viewBox="0 0 100 100" fill="none">
+                {/* Background faint coiled cord */}
+                <path 
+                  d="M 90,10 C 90,40 80,60 60,60 C 40,60 30,45 40,30 C 50,15 70,20 65,45 C 60,70 30,85 10,90" 
+                  stroke="rgba(239, 68, 68, 0.15)" 
+                  strokeWidth="2" 
+                  strokeLinecap="round"
+                />
+                {/* Glowing active wire line */}
+                <motion.path 
+                  d="M 90,10 C 90,40 80,60 60,60 C 40,60 30,45 40,30 C 50,15 70,20 65,45 C 60,70 30,85 10,90" 
+                  stroke="#ef4444" 
+                  strokeWidth="2" 
+                  strokeLinecap="round"
+                  initial={{ pathLength: 0 }}
+                  whileInView={{ pathLength: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 1.5, ease: "easeInOut" }}
+                  style={{ filter: "drop-shadow(0 0 3px #ef4444)" }}
+                />
+                {/* Traveling laser pulse */}
+                <motion.path 
+                  d="M 90,10 C 90,40 80,60 60,60 C 40,60 30,45 40,30 C 50,15 70,20 65,45 C 60,70 30,85 10,90" 
+                  stroke="#f43f5e" 
+                  strokeWidth="2.5" 
+                  strokeDasharray="6 20"
+                  animate={{ strokeDashoffset: [0, -50] }}
+                  transition={{ repeat: Infinity, duration: 3, ease: "linear" }}
+                  style={{ filter: "drop-shadow(0 0 5px #f43f5e)" }}
+                />
+              </svg>
+            </div>
+
+            <h3 className="text-2xl md:text-3xl font-bold text-white mb-6 relative z-10">
               Interested in collaborating?
             </h3>
-            <p className="text-gray-400 mb-10 max-w-2xl mx-auto">
+            <p className="text-gray-400 mb-10 max-w-2xl mx-auto relative z-10">
               I'm always open to discussing web development projects, data analysis roles, or partnership opportunities. Feel free to reach out via any of the platforms below!
             </p>
 
@@ -139,7 +211,7 @@ const Contact = () => {
               ))}
             </motion.div>
 
-            <div className="mt-12 pt-8 border-t border-white/5 flex justify-center">
+            <div className="mt-12 pt-8 border-t border-white/5 flex justify-center relative z-10">
               <a 
                 href={personalInfo.resumeLink} 
                 target="_blank" 

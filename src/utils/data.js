@@ -14,7 +14,8 @@ import {
   FaChartBar, 
   FaBookReader,
   FaChartArea,
-  FaLock
+  FaLock,
+  FaFileExcel
 } from 'react-icons/fa';
 import { 
   SiFastapi, 
@@ -28,19 +29,20 @@ import {
   SiPostman,
   SiMysql
 } from 'react-icons/si';
+import resumePdf from '../assets/Hariharan_Sivakumar_DataAnalyst.pdf';
 
 export const personalInfo = {
   name: "Hariharan Sivakumar",
-  role: "Full Stack Web Developer",
-  tagline: "Building scalable, responsive, and high-performance web applications with modern backend architectures.",
+  role: "Full Stack Developer | Aspiring Data Analyst",
+  tagline: "Full Stack Developer bridging engineering with data analytics — transforming database insights into functional, data-driven web solutions.",
   email: "hariharansivakumar.offl@gmail.com",
   phone: "+91 9025618366",
   location: "Erode, Tamil Nadu",
   linkedin: "https://www.linkedin.com/in/hariharan-sivakumar003",
   github: "https://github.com/hariharansivakumar-ai-ml",
   portfolio: "https://hariharan-sivakumar-portfolio.vercel.app",
-  resumeLink: "/Hariharan_Sivakumar_Resume.docx",
-  summary: "Full Stack Web Developer with hands-on experience building scalable, responsive, and high-performance web applications using React.js, JavaScript, Python, FastAPI, Firebase, PostgreSQL, and REST APIs. Proven ability to deliver business-focused web solutions across education, healthcare, and real estate domains with expertise in CMS integration, cloud storage, SEO optimization, and website migrations."
+  resumeLink: resumePdf,
+  summary: "Full Stack Web Developer with experience delivering web-based solutions and collaborating directly with clients and stakeholders to gather requirements and translate business needs into functional technical solutions. Comfortable working across the software development life cycle (SDLC), from requirements discussions through testing and delivery. Currently building SQL and Microsoft Power BI skills toward the PL-300 certification, with working knowledge of Python-based data tools (Pandas, NumPy, Matplotlib) and Excel, with the goal of growing into a Data Analyst role."
 };
 
 export const techSkills = [
@@ -71,10 +73,12 @@ export const techSkills = [
   { name: "Postman", category: "Cloud & Tools", icon: SiPostman, color: "text-accent-red", level: 85, status: "Advanced" },
 
   // Data & Analytics
-  { name: "Microsoft Power BI", category: "Data & Analytics", icon: FaChartBar, color: "text-accent-orange", level: 75, status: "Intermediate" },
-  { name: "Pandas", category: "Data & Analytics", icon: SiPandas, color: "text-accent-red", level: 78, status: "Advanced" },
-  { name: "NumPy", category: "Data & Analytics", icon: SiNumpy, color: "text-white", level: 75, status: "Intermediate" },
-  { name: "Matplotlib", category: "Data & Analytics", icon: FaChartArea, color: "text-accent-rose", level: 72, status: "Intermediate" }
+  { name: "SQL", category: "Data & Analytics", icon: FaDatabase, color: "text-accent-red", level: 65, status: "Learning" },
+  { name: "Microsoft Power BI", category: "Data & Analytics", icon: FaChartBar, color: "text-accent-orange", level: 60, status: "Learning" },
+  { name: "Excel", category: "Data & Analytics", icon: FaFileExcel, color: "text-white", level: 70, status: "Intermediate" },
+  { name: "Pandas", category: "Data & Analytics", icon: SiPandas, color: "text-accent-rose", level: 75, status: "Intermediate" },
+  { name: "NumPy", category: "Data & Analytics", icon: SiNumpy, color: "text-white", level: 70, status: "Intermediate" },
+  { name: "Matplotlib", category: "Data & Analytics", icon: FaChartArea, color: "text-accent-red", level: 70, status: "Intermediate" }
 ];
 
 export const experience = [
@@ -83,23 +87,24 @@ export const experience = [
     company: "Kanavu Startup Village",
     duration: "Dec 2025 – Present",
     responsibilities: [
-      "Developed and maintained responsive web applications using React.js, JavaScript, Python, and FastAPI.",
-      "Migrated WordPress-based websites to modern React applications, improving scalability and maintainability.",
-      "Built dynamic blog and CMS systems using Sanity CMS; integrated Cloudinary for optimized media storage.",
-      "Developed backend APIs, authentication workflows, and database integrations using Firebase and PostgreSQL.",
-      "Implemented on-page SEO strategies to improve search visibility and website performance.",
-      "Delivered customized web solutions across education, healthcare, real estate, and business sectors."
-    ]
+      "Identified a critical gap in project requirements — the absence of an admin capability for subscriber and blog content management — and proposed and implemented an admin module with Sanity CMS integration, reducing client dependency on developers for post-launch content updates.",
+      "Partnered with 3+ clients and stakeholders through weekly meetings, calls, and daily status reports to gather, analyze, and translate business requirements into functional web solutions.",
+      "Analyzed existing website structure and workflows for 3 WordPress-to-React migration projects, improving site maintainability and user experience through modernized architecture.",
+      "Validated 20–40 functional requirements and test scenarios per project — covering UI behavior, form validation, API responses, CMS rendering, and business workflows — identifying 10–20 issues pre-launch and reducing post-release defects.",
+      "Delivered 4–6 backend integrations, including Sanity CMS, REST APIs, subscriber management, and contact/data-handling systems, ensuring reliable data flow and CRUD functionality across frontend and backend."
+    ],
+    skills: "React.js, JavaScript, Python, FastAPI, Firebase, PostgreSQL, Sanity CMS, Cloudinary"
   },
   {
     role: "Freelance Full Stack Developer",
     company: "Self-Employed",
-    duration: "May 2025 – Present",
+    duration: "June 2025 – Present",
     responsibilities: [
-      "Developing a School ERP System to streamline academic and administrative operations.",
-      "Building responsive frontend with React.js and backend services with Python/FastAPI.",
-      "Implementing authentication, role-based access control, and scalable PostgreSQL/Firebase database architecture."
-    ]
+      "Gathered stakeholder requirements for managing academic information, events, and announcements.",
+      "Designed a content management solution enabling administrators to update website content without technical knowledge.",
+      "Improved user experience through responsive design and optimized information architecture."
+    ],
+    skills: "React.js, Python, FastAPI, PostgreSQL"
   }
 ];
 
@@ -154,7 +159,8 @@ export const education = [
   {
     degree: "Bachelor of Engineering (Mechanical Engineering)",
     institution: "Erode Sengunthar Engineering College",
-    duration: "2022"
+    duration: "2018 – 2022",
+    project: "Wear analysis of Nickel Chromium thin sheets in A36 steel by plating technique"
   }
 ];
 
@@ -164,9 +170,10 @@ export const certifications = [
 ];
 
 export const additionalExpertise = [
-  "Full Stack Dev",
+  "Requirements Gathering",
+  "Stakeholder Communication",
+  "Data-Driven Problem Solving",
+  "Full Stack Development",
   "Responsive Design",
-  "UI/UX",
-  "SEO Optimization",
   "WordPress-to-React Migration"
 ];

@@ -28,7 +28,7 @@ const Hero = () => {
           loop 
           muted 
           playsInline 
-          className="w-full h-full object-cover opacity-40 filter brightness-[0.8] contrast-[1.15]"
+          className="w-full h-full object-cover opacity-50 filter brightness-[0.8] contrast-[1.15]"
         >
           <source src={heroVideoWebm} type="video/webm" />
           <source src={heroVideoMp4} type="video/mp4" />

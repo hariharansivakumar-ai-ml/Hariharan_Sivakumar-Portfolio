@@ -20,7 +20,7 @@ const Experience = () => {
   });
 
   return (
-    <section id="experience" className="py-20 bg-secondary/30 relative">
+    <section id="experience" className="py-12 bg-secondary/30 relative">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionTitle title="Experience" subtitle="My professional timeline" />
 
@@ -84,6 +84,20 @@ const Experience = () => {
                     </li>
                   ))}
                 </ul>
+
+                {exp.skills && (
+                  <div className="mt-6 pt-4 border-t border-white/5 flex flex-wrap gap-2 items-center">
+                    <span className="text-xs font-semibold text-gray-400 mr-1">Key Technologies:</span>
+                    {exp.skills.split(',').map((techItem, tIdx) => (
+                      <span 
+                        key={tIdx} 
+                        className="text-[10px] font-mono font-medium text-accent-rose bg-accent-red/10 border border-accent-red/20 px-2 py-0.5 rounded-full"
+                      >
+                        {techItem.trim()}
+                      </span>
+                    ))}
+                  </div>
+                )}
               </div>
             </motion.div>
           ))}

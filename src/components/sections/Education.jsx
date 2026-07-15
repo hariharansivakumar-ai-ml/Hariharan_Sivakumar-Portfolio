@@ -26,7 +26,8 @@ const Education = () => {
       date: education[0]?.duration || "2018 - 2022",
       icon: <FaGraduationCap className="text-lg text-white" />,
       tag: "Academic Foundation",
-      desc: "Developed strong logical reasoning, thermodynamics models, mathematical frameworks, and analytical problem-solving skills before shifting focus to computer architectures."
+      desc: "Developed strong logical reasoning, thermodynamics models, mathematical frameworks, and analytical problem-solving skills before shifting focus to computer architectures.",
+      project: education[0]?.project
     },
     {
       title: certifications[0] || "AI Programmer Certification",
@@ -96,7 +97,7 @@ const Education = () => {
   };
 
   return (
-    <section id="education" className="py-24 bg-secondary/20 relative overflow-hidden">
+    <section id="education" className="py-12 bg-secondary/20 relative overflow-hidden">
       {/* Background ambient glowing details */}
       <div className="absolute top-1/4 left-1/10 w-96 h-96 bg-accent-red/5 rounded-full blur-[120px] pointer-events-none z-0" />
       <div className="absolute bottom-1/4 right-1/10 w-96 h-96 bg-accent-rose/5 rounded-full blur-[120px] pointer-events-none z-0" />
@@ -199,6 +200,12 @@ const Education = () => {
                     <p className="text-gray-400 text-sm md:text-base leading-relaxed mb-4 relative z-10">
                       {item.desc}
                     </p>
+
+                    {item.project && (
+                      <div className="text-xs text-accent-rose mb-4 relative z-10 border-t border-white/5 pt-3">
+                        <span className="text-gray-400 font-mono">Project:</span> {item.project}
+                      </div>
+                    )}
 
                     <div className="flex items-center gap-2 text-xs text-gray-400 bg-white/5 py-1.5 px-3 rounded-md w-max font-mono relative z-10 border border-white/5">
                       <FaCalendarAlt className="text-accent-red" /> {item.date}
